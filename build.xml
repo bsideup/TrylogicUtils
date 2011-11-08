@@ -44,20 +44,19 @@
 	<target name="test" depends="compile">
 		<taskdef resource="flexUnitTasks.tasks" classpath="${FLEXUNIT_HOME}/flexUnitTasks-4.1.0-8.jar" />
 
-		<property name="test.failure" value="no" />
-
 		<delete dir="${flexUnitOutput}" failonerror="no" quiet="yes" />
 		<mkdir dir="${flexUnitOutput}" />
 
-		<flexunit workingdir="${flexUnitOutput}" todir="${flexUnitOutput}" haltonfailure="false" verbose="false" failureproperty="test.success">
+		<flexunit workingdir="${flexUnitOutput}" todir="${flexUnitOutput}" haltonfailure="false" verbose="false" failureproperty="test.failure">
 			<testSource dir="${basedir}/tests">
 				<include name="**/*Test.as" />
 			</testSource>
 
+			<source dir="${basedir}/src" />
+
 			<library dir="${FLEXUNIT_HOME}" />
 		</flexunit>
 
-		<!-- Generate readable JUnit-style reports -->
 		<junitreport tofile="out/testReport.xml">
 			<fileset dir="${flexUnitOutput}">
 				<include name="TEST-*.xml" />

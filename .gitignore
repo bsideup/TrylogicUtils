@@ -1,3 +1,6 @@
 
 /sdk
 /out
+*.iml
+*.ipr
+*.iws
