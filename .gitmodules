@@ -1,0 +1,3 @@
+[submodule "libs/junitreportprinter"]
+	path = libs/junitreportprinter
+	url = git@github.com:bsideup/JUnitReportPrinter.git
